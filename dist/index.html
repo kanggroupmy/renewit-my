@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>RenewIt.my — Renew at the right time</title>
+  <meta name="description" content="A simple reminder service that helps Malaysian drivers stay ahead of their vehicle insurance renewal.">
+  <meta name="theme-color" content="#102A43">
+  <meta property="og:title" content="RenewIt.my — Renew at the right time">
+  <meta property="og:description" content="Know when your vehicle insurance needs attention and avoid a lapse in cover.">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@600;700&family=Inter:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{--navy:#102a43;--blue:#1463ff;--cloud:#f7f9fc;--slate:#52606d;--line:#d7dee7;--amber:#d97706;--green:#168a5b;--red:#c93737;--white:#fff}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:var(--cloud);color:var(--navy);font:400 1rem/1.65 Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+    a{color:inherit}
+    .shell{width:min(1160px,calc(100% - 40px));margin-inline:auto}
+    header{height:82px;display:flex;align-items:center;border-bottom:1px solid rgba(16,42,67,.09)}
+    nav{display:flex;align-items:center;justify-content:space-between}
+    .logo{font:800 1.35rem/1 Manrope,sans-serif;text-decoration:none;letter-spacing:-.04em}.logo .it{color:var(--blue)}.logo .my{color:var(--slate);font-weight:600}
+    .nav-link{font-size:.9rem;font-weight:600;text-decoration:none;color:var(--slate)}
+    main{overflow:hidden}
+    .hero{min-height:calc(100vh - 82px);display:grid;grid-template-columns:1.05fr .95fr;gap:72px;align-items:center;padding-block:72px 88px}
+    .eyebrow{display:inline-flex;align-items:center;gap:10px;margin:0 0 24px;font:700 .75rem/1 IBM Plex Mono,monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--blue)}
+    .eyebrow::before{content:"";width:28px;height:2px;background:var(--blue)}
+    h1{font:800 clamp(3.25rem,6.2vw,6rem)/.98 Manrope,sans-serif;letter-spacing:-.065em;margin:0;max-width:720px}
+    .lead{font-size:clamp(1.05rem,1.5vw,1.25rem);line-height:1.65;color:var(--slate);max-width:590px;margin:30px 0 34px}
+    .actions{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+    .button{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:0 24px;border-radius:8px;background:var(--blue);color:#fff;text-decoration:none;font-weight:700;box-shadow:0 12px 24px rgba(20,99,255,.2);transition:transform .2s,box-shadow .2s}
+    .button:hover{transform:translateY(-2px);box-shadow:0 16px 28px rgba(20,99,255,.28)}
+    .button:focus-visible,.nav-link:focus-visible,.logo:focus-visible{outline:3px solid rgba(20,99,255,.35);outline-offset:4px}
+    .micro{font-size:.82rem;color:var(--slate)}
+    .notice-wrap{position:relative;display:grid;place-items:center;min-height:560px}
+    .orbit{position:absolute;width:470px;height:470px;border:1px solid rgba(20,99,255,.13);border-radius:50%}.orbit::before,.orbit::after{content:"";position:absolute;border-radius:50%;background:var(--blue)}.orbit::before{width:10px;height:10px;right:35px;top:90px}.orbit::after{width:7px;height:7px;left:54px;bottom:77px;background:var(--amber)}
+    .notice{position:relative;width:min(400px,100%);background:#fff;border:1px solid rgba(16,42,67,.08);border-radius:24px;overflow:hidden;box-shadow:0 32px 80px rgba(16,42,67,.16);transform:rotate(2deg)}
+    .status{display:flex;justify-content:space-between;align-items:center;background:var(--amber);color:#fff;padding:18px 22px;font:800 .78rem Manrope,sans-serif;letter-spacing:.04em}.status span:last-child{font:700 .68rem IBM Plex Mono,monospace;background:rgba(255,255,255,.18);padding:6px 10px;border-radius:999px}
+    .notice-body{padding:24px 28px 28px}.notice-head{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:42px}.checked{text-align:right;color:var(--slate);font-size:.62rem;line-height:1.45}
+    .plate{height:102px;border:2px dashed #a9b7c6;border-radius:12px;background:repeating-linear-gradient(135deg,#edf1f6 0 7px,#fff 7px 14px);display:grid;place-items:center;font:700 clamp(1.6rem,4vw,2.35rem) IBM Plex Mono,monospace;letter-spacing:.07em}
+    .notice h2{font:800 1.55rem/1.2 Manrope,sans-serif;letter-spacing:-.035em;text-align:center;margin:38px 0 10px}.notice p{text-align:center;color:var(--slate);font-size:.84rem;line-height:1.55;margin:0 auto;max-width:310px}
+    .notice-foot{display:flex;justify-content:space-between;align-items:center;background:var(--navy);color:#fff;padding:19px 24px;font:700 .78rem Manrope,sans-serif}.notice-foot span:last-child{font:600 .72rem IBM Plex Mono,monospace;color:#bfd3ff}
+    .how{background:var(--navy);color:#fff;padding:96px 0}
+    .how-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:88px;align-items:start}
+    .how h2{font:800 clamp(2.2rem,4vw,3.7rem)/1.05 Manrope,sans-serif;letter-spacing:-.05em;margin:0}.how-intro{color:#bfd3d9;margin-top:22px;max-width:390px}
+    .steps{display:grid;gap:1px;background:rgba(255,255,255,.13);border:1px solid rgba(255,255,255,.13);border-radius:16px;overflow:hidden}
+    .step{display:grid;grid-template-columns:64px 1fr;gap:12px;background:var(--navy);padding:28px}.step-num{font:700 .8rem IBM Plex Mono,monospace;color:#7da7ff}.step h3{font:700 1.1rem Manrope,sans-serif;margin:0 0 7px}.step p{margin:0;color:#b9c8d5;font-size:.92rem;line-height:1.55}
+    footer{background:var(--navy);color:#b9c8d5}.footer-in{border-top:1px solid rgba(255,255,255,.12);min-height:116px;display:flex;justify-content:space-between;align-items:center;gap:24px;font-size:.8rem}.footer-in .logo{color:#fff}.footer-in .logo .my{color:#b9c8d5}
+    @media(max-width:860px){.hero{grid-template-columns:1fr;gap:35px;padding-top:56px}.hero-copy{text-align:center}.eyebrow{justify-content:center}.lead{margin-inline:auto}.actions{justify-content:center}.notice-wrap{min-height:520px}.how-grid{grid-template-columns:1fr;gap:48px}.how{text-align:center}.how-intro{margin-inline:auto}.step{text-align:left}}
+    @media(max-width:520px){.shell{width:min(100% - 28px,1160px)}header{height:72px}.nav-link{font-size:.8rem}.hero{min-height:auto;padding:48px 0 64px}h1{font-size:3.15rem}.lead{margin:24px 0 28px}.actions{display:grid}.button{width:100%}.notice-wrap{min-height:450px}.orbit{width:380px;height:380px}.notice{width:92%;border-radius:18px}.notice-body{padding:20px}.notice-head{margin-bottom:28px}.plate{height:84px}.notice h2{font-size:1.3rem;margin-top:28px}.how{padding:72px 0}.step{grid-template-columns:46px 1fr;padding:23px 20px}.footer-in{padding:28px 0;align-items:flex-start;flex-direction:column}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.button{transition:none}}
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="shell" aria-label="Main navigation">
+      <a class="logo" href="#top" aria-label="RenewIt.my home">renew<span class="it">it</span><span class="my">.my</span></a>
+      <a class="nav-link" href="#how-it-works">How it works</a>
+    </nav>
+  </header>
+  <main id="top">
+    <section class="hero shell" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow">Vehicle renewal reminders</p>
+        <h1 id="hero-title">Renew at the right time.</h1>
+        <p class="lead">RenewIt helps Malaysian drivers know when their vehicle insurance needs attention—so there’s time to review the options and avoid a lapse in cover.</p>
+        <div class="actions">
+          <a class="button" href="#how-it-works">I received a notice</a>
+          <span class="micro">Your notice has your vehicle-specific link.</span>
+        </div>
+      </div>
+      <div class="notice-wrap" aria-label="Example RenewIt vehicle notice">
+        <div class="orbit" aria-hidden="true"></div>
+        <article class="notice">
+          <div class="status"><span>EXPIRING SOON</span><span>ACT SOON</span></div>
+          <div class="notice-body">
+            <div class="notice-head">
+              <span class="logo">renew<span class="it">it</span><span class="my">.my</span></span>
+              <span class="checked">Checked by<br>RenewIt field team</span>
+            </div>
+            <div class="plate">WXY 1234</div>
+            <h2>Your renewal window is open.</h2>
+            <p>Use the QR code or short link on your notice to view the next step for your vehicle.</p>
+          </div>
+          <div class="notice-foot"><span>Renew at the right time.</span><span>renewit.my</span></div>
+        </article>
+      </div>
+    </section>
+    <section class="how" id="how-it-works" aria-labelledby="how-title">
+      <div class="shell how-grid">
+        <div>
+          <p class="eyebrow">Your notice, explained</p>
+          <h2 id="how-title">A timely heads-up. Nothing more.</h2>
+          <p class="how-intro">RenewIt is an independent renewal-tracking service. Your personalised notice is the starting point.</p>
+        </div>
+        <div class="steps">
+          <article class="step"><span class="step-num">01</span><div><h3>Find the QR code</h3><p>It appears beside your vehicle registration number on the front of the notice.</p></div></article>
+          <article class="step"><span class="step-num">02</span><div><h3>Open your secure link</h3><p>Scan the code or enter the short address printed underneath it.</p></div></article>
+          <article class="step"><span class="step-num">03</span><div><h3>Confirm before renewing</h3><p>Check your exact policy details with your insurer or agent before you make a decision.</p></div></article>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <div class="shell footer-in">
+      <span class="logo">renew<span class="it">it</span><span class="my">.my</span></span>
+      <span>Independent renewal tracking for Malaysian drivers.</span>
+    </div>
+  </footer>
+</body>
+</html>
